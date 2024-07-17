@@ -1,6 +1,7 @@
 # Github stats SVG generator (WIP)
 
 
+
 ### .env file template:
 
 ```.env
