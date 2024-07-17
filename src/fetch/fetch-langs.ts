@@ -62,6 +62,7 @@ export const fetchLangs = (rawData: RawLangData): Array<LangInfo> => {
     const langTable = Object.values(
         langs.reduce((acc, lang) => {
             if (lang.name == "Yacc") return acc; // ignore gamemaker studio config files
+            if (lang.name == "Game Maker Language") lang.name = "GMS2 lang"; // shortify
             if (acc[lang.name]) {
                 acc[lang.name].size += lang.size;
             } else {

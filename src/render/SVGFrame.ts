@@ -8,7 +8,7 @@ export class SVGFrame {
     private paddingX: number;
     private paddingY: number;
 
-    constructor(width = 500, height = 250, border_radius = 4.5) {
+    constructor(width = 400, height = 250, border_radius = 4.5) {
         this.width = width;
         this.height = height;
         this.border_radius = border_radius;

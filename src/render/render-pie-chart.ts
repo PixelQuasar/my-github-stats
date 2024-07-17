@@ -11,11 +11,11 @@ export const renderPieChart = (
 ) => {
     const svgFrame = new SVGFrame();
 
-    const r = 50;
+    const r = 40;
     const circleLength = math.circleLength(r);
     let totalBytesCount = data.reduce((acc, item) => acc + item.size, 0);
     let circleIndent = 0;
-    let circleWidth = 25;
+    let circleWidth = 20;
     return `
     <svg
         width="${svgFrame.width}"
@@ -28,12 +28,12 @@ export const renderPieChart = (
     >
     <style>
 .header {
-    font: 700 24px 'Lucida Grande';
+    font: 700 18px 'Monaco';
     animation: fadeInAnimation 0.8s ease-in-out forwards;
 }
 
 .legend-block {
-    font: 700 13px 'Andale Mono', Ubuntu, Sans-Serif;
+    font: 700 12px 'Andale Mono', Ubuntu, Sans-Serif;
 }
 
 .section {
@@ -57,17 +57,17 @@ ${svgFrame.getCss()}
         height="${svgFrame.height}" width="${svgFrame.width}" rx="2"
         fill="${theme.bg}" stroke="${theme.accentTwo}" stroke-width="5"
     />
-    <g transform="${flip ? "translate(35 50)" : "translate(15 50)"}">
+    <g transform="${flip ? "translate(25 50)" : "translate(15 50)"}">
         <text x="0" y="0" class="header" data-testid="header" fill="${
             theme.title
         }"> ${title} </text>
     </g>
-    <g transform="${flip ? "translate(250, 90)" : "translate(25, 90)"}" class="legend-block">
+    <g transform="${flip ? "translate(180, 95)" : "translate(25, 95)"}" class="legend-block">
         <svg>
             ${data
                 .map((item, index) => {
                     return `<g transform="translate(${((index / 5) >> 0) * 110}, ${
-                        (index % 5) * 24
+                        (index % 5) * 20
                     })">
                     <rect width="10" height="10" fill="${item.color}" rx="2"/>
                     <text x="18" y="11" fill="${theme.text}">${item.name}</text>
@@ -76,7 +76,7 @@ ${svgFrame.getCss()}
                 .join("")}
         </svg>
     </g>
-    <g transform="${flip ? "translate(0 45)" : "translate(300 45)"}" class="chart-block">
+    <g transform="${flip ? "translate(-20 40)" : "translate(200 40)"}" class="chart-block">
         <svg>
         ${data
             .map((item) => {
