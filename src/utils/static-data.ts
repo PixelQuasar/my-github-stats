@@ -1,0 +1,5 @@
+export const CONFIG = {
+    CARD_CACHE_SECONDS: 21600,
+    ERROR_CACHE_SECONDS: 600,
+    ONE_DAY: 86400,
+};
