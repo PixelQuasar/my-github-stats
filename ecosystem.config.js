@@ -2,10 +2,14 @@ module.exports = {
     apps: [
         {
             name: "github-stats-service",
-            script: "npm run prod",
-            //script: 'next dev -H 0.0.0.0 -p 3001',
-            "watch-ignore": ["/\\]./", "node_modules", "*.log", "public", "src"],
+            script: "./dist/index.js",
+            exec_mode: "fork",
+            instances: 1,
+            autorestart: true,
             watch: false,
+            env: {
+                NODE_ENV: "production",
+            },
         },
     ],
 };
