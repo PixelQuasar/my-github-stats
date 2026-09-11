@@ -6,7 +6,10 @@ import { renderPieChart } from "../../render";
 let wakatimeLangCache = "try again";
 
 const getWakatimeData = async () => {
-    return httpGetRequest("https://wakatime.com/api/v1/users/Quasarity/stats", {});
+    return httpGetRequest(
+        `https://wakatime.com/api/v1/users/${process.env.WAKATIME_USERNAME}/stats`,
+        {},
+    );
 };
 
 export const wakatimeEndpoint = async (req: Request, res: Response) => {
